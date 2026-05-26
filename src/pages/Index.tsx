@@ -1,5 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 
+const BUTTONS_DISABLED = true;
+
 const buggyMessages = [
   "Ошибка 404: корзина не найдена",
   "Сервер временно недоступен. Попробуйте через 3-5 рабочих лет",
@@ -175,9 +177,13 @@ export default function Index() {
         <button
           className="btn-cta"
           id="book"
+          disabled={BUTTONS_DISABLED}
           style={{
             transform: shakeBtn === "book" ? "translateX(8px)" : "none",
             position: "relative",
+            opacity: 0.4,
+            cursor: "not-allowed",
+            filter: "grayscale(80%)",
           }}
           onClick={() => showBugError("book")}
         >
@@ -208,10 +214,12 @@ export default function Index() {
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-5">
               <button
                 className="btn-cta"
+                disabled={BUTTONS_DISABLED}
                 style={{
                   background: "var(--primary)", color: "white",
                   transform: shakeBtn === "order" ? "translate(10px, -10px) rotate(5deg)" : "none",
                   transition: "transform 0.1s",
+                  opacity: 0.4, cursor: "not-allowed", filter: "grayscale(80%)",
                 }}
                 onClick={handleOrder}
               >
@@ -219,9 +227,11 @@ export default function Index() {
               </button>
               <button
                 className="btn-cta"
+                disabled={BUTTONS_DISABLED}
                 style={{
                   background: "white",
                   transform: shakeBtn === "menu" ? "translateX(-15px)" : "none",
+                  opacity: 0.4, cursor: "not-allowed", filter: "grayscale(80%)",
                 }}
                 onClick={() => showBugError("menu")}
               >
@@ -287,7 +297,8 @@ export default function Index() {
                 </p>
                 <button
                   className="btn-cta"
-                  style={{ width: "100%", marginTop: 12, fontSize: 12 }}
+                  disabled={BUTTONS_DISABLED}
+                  style={{ width: "100%", marginTop: 12, fontSize: 12, opacity: 0.4, cursor: "not-allowed", filter: "grayscale(80%)" }}
                   onClick={() => handleAddToCart("card1")}
                 >
                   {buttonLabels.card1}
@@ -310,7 +321,8 @@ export default function Index() {
                 <p style={{ fontSize: 14, color: "#666" }}>Двойная пепперони, острый мёд, тесто на закваске.</p>
                 <button
                   className="btn-cta"
-                  style={{ width: "100%", marginTop: 12, fontSize: 12, background: "var(--secondary)", color: "white" }}
+                  disabled={BUTTONS_DISABLED}
+                  style={{ width: "100%", marginTop: 12, fontSize: 12, background: "var(--secondary)", color: "white", opacity: 0.4, cursor: "not-allowed", filter: "grayscale(80%)" }}
                   onClick={() => handleAddToCart("card2")}
                 >
                   {buttonLabels.card2}
@@ -334,7 +346,8 @@ export default function Index() {
                 </p>
                 <button
                   className="btn-cta"
-                  style={{ width: "100%", marginTop: 12, fontSize: 12, background: "var(--accent)" }}
+                  disabled={BUTTONS_DISABLED}
+                  style={{ width: "100%", marginTop: 12, fontSize: 12, background: "var(--accent)", opacity: 0.4, cursor: "not-allowed", filter: "grayscale(80%)" }}
                   onClick={() => handleAddToCart("card3")}
                 >
                   {buttonLabels.card3}
@@ -361,7 +374,8 @@ export default function Index() {
             </p>
             <button
               className="btn-cta"
-              style={{ background: "var(--dark)", color: "white", borderColor: "white" }}
+              disabled={BUTTONS_DISABLED}
+              style={{ background: "var(--dark)", color: "white", borderColor: "white", opacity: 0.4, cursor: "not-allowed", filter: "grayscale(80%)" }}
               onClick={() => showBugError("story")}
             >
               {buttonLabels.story}
